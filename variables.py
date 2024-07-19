@@ -3,29 +3,29 @@ import time
 
 
 class Player():
-    def __init__(self) -> None:
-        self.hp = 100
-        self.mana = 10
-        self.resistance = 0
-        self.mag_resistance = 0
-        self.mag_damage = 0
-        self.damage = 10
-        self.attack_speed = 1
+    def __init__(self, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        self.hp = hp
+        self.mana = mana
+        self.resistance = resistance
+        self.mag_resistance = mag_resistance
+        self.mag_damage = mag_damage
+        self.damage = damage
+        self.attack_speed = attack_speed
         self.gold = 0
         super().__init__()
 
 
 class Object():
-    def __init__(self) -> None:
-        self.rarity = ""
-        self.name = ""
-        self.add_hp = 0
-        self.add_damage = 0
-        self.add_resistance = 0
-        self.add_mag_damage = 0
-        self.add_mag_resistance = 0
-        self.add_mana = 0
-        self.add_attack_speed = 0
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        self.rarity = rarity
+        self.name = name
+        self.add_hp = hp
+        self.add_damage = damage
+        self.add_resistance = resistance
+        self.add_mag_damage = mag_damage
+        self.add_mag_resistance = mag_resistance
+        self.add_mana = mana
+        self.add_attack_speed = attack_speed
         super().__init__()
 
     def random_rarity(self):
@@ -43,45 +43,47 @@ class Object():
         else:
             rarity = "Legendary"
 
+        return rarity
+
 
 class Sword(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Axe(Object):
-    def __init__(self) -> None:
-        super().__init__()
-    
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
+            
 
 class Bow(Object):
-    def __init__(self) -> None:
-        super().__init__()    
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass    
 
 
 class Wand(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Helmet(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Chestplate(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Leggings(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Boots(Object):
-    def __init__(self) -> None:
-        super().__init__()
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+        pass
 
 
 class Gold():
@@ -95,6 +97,9 @@ def random_rarity(obj):
     return rarity
 
 
-BasicSword = Sword()
-BasicSword.name = "Basic Sword"
-BasicSword.rarity = "Common"
+player = Player(100, 10, 0, 0, 0, 10, 1.5)
+print(str(Player))
+BasicSword = Sword("BasicSword", "Common", 0, 0, 0, 0, 0, 10, 0)
+print(str(BasicSword))
+BrutalAxe = Axe("BrutalAxe", "Uncommon", 0, 0, 0, 0, 0, 15, 0.5)
+print(str(BrutalAxe.name))

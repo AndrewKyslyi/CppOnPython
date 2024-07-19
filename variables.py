@@ -17,7 +17,7 @@ class Player():
 
 
 class Object():
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
         self.rarity = rarity
         self.name = name
         self.add_hp = hp
@@ -30,65 +30,48 @@ class Object():
         self.lvl = 0
         super().__init__()
 
-    def random_rarity(self):
-        rarity = None
-        random = r.randint(0, 100)
-
-        if random >= 0 and random <= 50:
-            rarity = "Common"
-        elif random > 50 and random <= 80:
-            rarity = "Uncommon"
-        elif random > 80 and random <= 90:
-            rarity = "Rare"
-        elif random > 90 and random <= 97:
-            rarity = "Mithic"
-        else:
-            rarity = "Legendary"
-
-        return rarity
-
 
 class Sword(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 
 class Axe(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
             
 
 class Bow(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 class Wand(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 class Helmet(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 class Chestplate(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 
 class Leggings(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 
 class Boots(Object):
-    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
 
 
 class Gold():
@@ -96,9 +79,26 @@ class Gold():
         super().__init__()
 
 
+class Inventory():
+    def __init__(self) -> None:
+        super().__init__()
+
 player = Player(100, 10, 0, 0, 0, 10, 1.5)
-print(str(Player))
-BasicSword = Sword("BasicSword", "Common", 0, 0, 0, 0, 0, 10, 0)
-print(str(BasicSword))
-BrutalAxe = Axe("BrutalAxe", "Uncommon", 0, 0, 0, 0, 0, 15, 0.5)
-print(str(BrutalAxe.name))
+
+BasicSword = Sword("Common", "Basic Sword", 0, 0, 0, 0, 0, 10, 0, 0)
+
+BrutalAxe = Axe("Uncommon", "Brutal Axe", 0, 0, 0, 0, 0, 15, 0.5, 0)
+
+BasicBow = Bow('Common', "Basic Bow", 0, 0, 0, 0, 0, 10, 0.5, 0)
+
+MagicStaff = Wand('Rare', 'Magic Staff', 0, 50, 0, 1, 35, 0, -0.2, 0)
+
+AnubisHelmet = Helmet("Mythic", "Anubis Helmet", 50, 80, 10, 5, 0, 0, -0.2, 0)
+
+KnightChestplate = Chestplate("Rare", "Knight's Chestplate", 100, 10, 15, 0, 0, 0, 0.3, 0)
+
+LEATHERPANTS = Leggings('Legendary', 'LEATHER PANTS', 100, 15, 30, 10, 10, 1, -0.7, 0)
+
+BarhatnyeTyagi = Boots('Uncommon', "Barhatnye Tyagi", 10, 1, 5, 7, 0, 0, -0.2, 0)
+
+all_objects = (BasicSword, BrutalAxe, BasicBow, MagicStaff, AnubisHelmet, KnightChestplate, LEATHERPANTS, BarhatnyeTyagi)

@@ -12,6 +12,7 @@ class Player():
         self.damage = 10
         self.attack_speed = 1
         self.gold = 0
+        self.lvl = 0
         super().__init__()
 
 
@@ -26,6 +27,7 @@ class Object():
         self.add_mag_resistance = 0
         self.add_mana = 0
         self.add_attack_speed = 0
+        self.lvl = 0
         super().__init__()
 
     def random_rarity(self):

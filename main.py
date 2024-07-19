@@ -53,13 +53,15 @@ while True:
                 print(i.rarity)
                 break
 
-    #print(random_rarity_list)
-    
+    # using enumerate() to count ids
     for index, i in enumerate(random_rarity_list, start=1):
         color = get_color(i.rarity)
         reset = reset_color()
         print(f'{index}. {i.name} - {color}{i.rarity}{reset}')
         
+    answer = int(input("Choose number (1, 2 or 3): ")) 
+    
     random_rarity_list = []
     break
+
 

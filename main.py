@@ -53,7 +53,7 @@ while True:
                 print(i.rarity)
                 break
 
-    print(random_rarity_list)
+    #print(random_rarity_list)
     
     for index, i in enumerate(random_rarity_list, start=1):
         color = get_color(i.rarity)

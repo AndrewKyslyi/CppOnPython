@@ -53,12 +53,12 @@ while True:
                 print(i.rarity)
                 break
 
-    print(random_rarity_list)
+    #print(random_rarity_list)
     
     for index, i in enumerate(random_rarity_list, start=1):
         color = get_color(i.rarity)
         reset = reset_color()
-        print(f'{index}. {i.name} - {color}{i.rarity}{reset}')
+        print(f'{index}. {i.name} - {color}{i.rarity}{reset}\n')
         
     random_rarity_list = []
     break

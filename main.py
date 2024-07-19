@@ -58,9 +58,30 @@ while True:
         color = get_color(i.rarity)
         reset = reset_color()
         print(f'{index}. {i.name} - {color}{i.rarity}{reset}')
-        
-    answer = int(input("Choose number (1, 2 or 3): ")) 
     
+    
+    while True:
+        try:
+            answer = int(input("Choose number (1, 2 or 3): "))    
+        except ValueError:
+            print("U may printed wrong data")
+            continue
+
+        if answer != 1 and answer != 2 and answer != 3:
+            continue
+        else: 
+            break
+
+    if answer == 1:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[0])
+    elif answer == 2:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[1])
+    if answer == 3:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[2])
+
     random_rarity_list = []
     break
 

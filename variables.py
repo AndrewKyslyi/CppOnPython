@@ -87,6 +87,7 @@ class Gold():
 class Inventory():
     def __init__(self) -> None:
         self.space = 50
+        self.obtained = []  
         super().__init__()
 
 

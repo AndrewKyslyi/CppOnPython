@@ -102,3 +102,5 @@ LEATHERPANTS = Leggings('Legendary', 'LEATHER PANTS', 100, 15, 30, 10, 10, 1, -0
 BarhatnyeTyagi = Boots('Uncommon', "Barhatnye Tyagi", 10, 1, 5, 7, 0, 0, -0.2, 0)
 
 all_objects = (BasicSword, BrutalAxe, BasicBow, MagicStaff, AnubisHelmet, KnightChestplate, LEATHERPANTS, BarhatnyeTyagi)
+
+all_rarities = ('Common', 'Uncommon', 'Rare', 'Mythic', 'Legendary')

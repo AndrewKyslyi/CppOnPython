@@ -22,6 +22,18 @@ def random_rarity():
         rarity = "Legendary"
     return rarity
 
+def get_color(rarity):
+    colors = {
+        "Common": "\033[90m",  # Серый
+        "Uncommon": "\033[96m",  # Светло-голубой
+        "Rare": "\033[94m",  # Синий
+        "Mythic": "\033[91m",  # Красный
+        "Legendary": "\033[93m"  # Желтый
+    }
+    return colors.get(rarity)
+
+def reset_color():
+    return "\033[0m"
 
 while True:
     print('Hello! This is "World Of Magic"\nIn this universe u can choose any way u like! Maybe its just like "open-world" console game xD\nHope ull have fun!')
@@ -29,19 +41,25 @@ while True:
     print("So...")
     time.sleep(1)
     print("Lets start!")
-    for_random = []
-    for _ in range(0,3):
+    random_rarity_list = []
+
+    while len(random_rarity_list) < 3:
         for i in v.all_objects:
             if random_rarity() == i.rarity:
-                for_random.append(i.name)
+                if i in random_rarity_list:
+                    continue
+                else:
+                    random_rarity_list.append(i)
                 print(i.rarity)
                 break
+
+    print(random_rarity_list)
     
-
-    print(for_random)
-    print(f"Выбирай что по душе ;)\n\n{for_random[0]}\n\n{for_random[1]}\n\n{for_random[2]}\n")
-    for_random = []
+    for index, i in enumerate(random_rarity_list, start=1):
+        color = get_color(i.rarity)
+        reset = reset_color()
+        print(f'{index}. {i.name} - {color}{i.rarity}{reset}')
+        
+    random_rarity_list = []
     break
-
-
 

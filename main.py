@@ -35,6 +35,17 @@ def get_color(rarity):
 def reset_color():
     return "\033[0m"
 
+
+def update_stats(player, inventory):
+    for i in inventory:
+        if i.status:
+            for j in i:
+                if j is int:
+                    for i in player:
+
+            
+
+
 while True:
     print('Hello! This is "World Of Magic"\nIn this universe u can choose any way u like! Maybe its just like "open-world" console game xD\nHope ull have fun!')
     time.sleep(3)
@@ -81,7 +92,13 @@ while True:
     if answer == 3:
         v.Inventory1.space -= 1
         v.Inventory1.obtained.append(random_rarity_list[2])
+    
+    print(f"U obtained new item {random_rarity_list[answer-1].rarity}")
+    answer = str(input("Do u wanna equip it(y/n)?\nAnswer: "))
 
+    if answer == 'y':
+        v.Inventory1.obtained[-1].status = True
+        
     random_rarity_list = []
     break
 

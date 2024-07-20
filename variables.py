@@ -4,15 +4,25 @@ import time
 
 class Player():
     def __init__(self, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed) -> None:
-        self.hp = hp
+        """self.hp = hp
         self.mana = mana
         self.resistance = resistance
         self.mag_resistance = mag_resistance
         self.mag_damage = mag_damage
         self.damage = damage
-        self.attack_speed = attack_speed
+        self.attack_speed = attack_speed"""
         self.gold = 0
         self.lvl = 0
+        self.stats = {
+                "hp": hp,
+                "mana": mana,
+                "resistance": resistance,
+                "mag_resistance": mag_resistance,
+                "mag_damage": mag_damage,
+                "damage": damage,
+                "attack_speed": attack_speed,
+
+                }
         super().__init__()
 
 

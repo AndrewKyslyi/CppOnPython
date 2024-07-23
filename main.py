@@ -35,14 +35,11 @@ def get_color(rarity):
 def reset_color():
     return "\033[0m"
 
-while True:
-    print('Hello! This is "World Of Magic"\nIn this universe u can choose any way u like! Maybe its just like "open-world" console game xD\nHope ull have fun!')
-    time.sleep(3)
-    print("So...")
-    time.sleep(1)
-    print("Lets start!")
-    random_rarity_list = []
 
+def update_stats(player, inventory):
+    pass
+
+def create_random_rarity_list():
     while len(random_rarity_list) < 3:
         for i in v.all_objects:
             if random_rarity() == i.rarity:
@@ -50,15 +47,71 @@ while True:
                     continue
                 else:
                     random_rarity_list.append(i)
-                print(i.rarity)
-                break
+                #print(i.rarity)
+                return random_rarity_list
 
-    #print(random_rarity_list)
-    
+
+def create_choice():
+    # using enumerate() to count ids
+    random_rarity_list = []
     for index, i in enumerate(random_rarity_list, start=1):
         color = get_color(i.rarity)
         reset = reset_color()
-        print(f'{index}. {i.name} - {color}{i.rarity}{reset}\n')
+        print(f'{index}. {i.name} - {color}{i.rarity}{reset}')
+    
+    while True:
+        try:
+            answer = int(input("Choose number (1, 2 or 3): "))    
+        except ValueError:
+            print("U may printed wrong data")
+            continue
+
+        if answer != 1 and answer != 2 and answer != 3:
+            continue
+        else: 
+            return answer
+
+
+def battle():
+    random = r.randint(1, 4)
+    if random == 1:
+        enemy = v.Goblin1
+    elif random == 2:
+        enemy = v.Elite_goblin
+    elif random == 3:
+        enemy = v.Grand_Orc
+    else:
+        enemy = v.The_Boss
+      
+
+while True:
+    print('Hello! This is "World Of Magic"\nIn this universe u can choose any way u like! Maybe its just like "open-world" console game xD\nHope ull have fun!')
+    time.sleep(3)
+    print("So...")
+    time.sleep(1)
+    print("Lets start!")
+    #print(random_rarity_list)
+
+    
+    answer = create_choice()
+    random_rarity_list = create_random_rarity_list()
+
+
+    if answer == 1:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[0])
+    elif answer == 2:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[1])
+    if answer == 3:
+        v.Inventory1.space -= 1
+        v.Inventory1.obtained.append(random_rarity_list[2])
+    
+    print(f"U obtained new item {random_rarity_list[answer-1].rarity}")
+    answer = str(input("Do u wanna equip it(y/n)?\nAnswer: "))
+
+    if answer == 'y':
+        v.Inventory1.obtained[-1].status = True
         
     random_rarity_list = []
     break

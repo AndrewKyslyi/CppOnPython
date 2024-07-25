@@ -40,6 +40,7 @@ def update_stats(player, inventory):
     pass
 
 def create_random_rarity_list():
+    random_rarity_list = []
     while len(random_rarity_list) < 3:
         for i in v.all_objects:
             if random_rarity() == i.rarity:
@@ -48,12 +49,11 @@ def create_random_rarity_list():
                 else:
                     random_rarity_list.append(i)
                 #print(i.rarity)
-                return random_rarity_list
+    return random_rarity_list
 
 
-def create_choice():
+def create_choice(random_rarity_list):
     # using enumerate() to count ids
-    random_rarity_list = []
     for index, i in enumerate(random_rarity_list, start=1):
         color = get_color(i.rarity)
         reset = reset_color()
@@ -72,7 +72,7 @@ def create_choice():
             return answer
 
 
-def battle():
+def start_battle():
     random = r.randint(1, 4)
     if random == 1:
         enemy = v.Goblin1
@@ -82,7 +82,21 @@ def battle():
         enemy = v.Grand_Orc
     else:
         enemy = v.The_Boss
-      
+    
+    try:    
+        answer = str(input(f"U met {enemy.name}!\n Do u wanna fight him?\ny/n: "))
+    except ValueError:
+        print("U may wrote wrong data, try again")
+
+    if answer == 'y':
+        battle()
+    else:
+        return int(input('Well, where u wanna go?\n\n0:[Where am i?], 1:[To the grand city], 2:[To the valley], 3:[To the forest]'))
+        
+
+def battle():
+    print('Fight start')
+
 
 while True:
     print('Hello! This is "World Of Magic"\nIn this universe u can choose any way u like! Maybe its just like "open-world" console game xD\nHope ull have fun!')
@@ -93,8 +107,8 @@ while True:
     #print(random_rarity_list)
 
     
-    answer = create_choice()
     random_rarity_list = create_random_rarity_list()
+    answer = create_choice(random_rarity_list)
 
 
     if answer == 1:
@@ -113,6 +127,6 @@ while True:
     if answer == 'y':
         v.Inventory1.obtained[-1].status = True
         
+    start_battle()
     random_rarity_list = []
     break
-

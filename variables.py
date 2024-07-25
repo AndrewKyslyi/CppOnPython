@@ -37,7 +37,7 @@ class Object():
         self.add_mag_resistance = mag_resistance
         self.add_mana = mana
         self.add_attack_speed = attack_speed
-        self.lvl = 0
+        self.lvl = lvl
         self.status = boolean
         super().__init__()
 
@@ -89,23 +89,23 @@ class Boots(Object):
 
 
 class Goblin(Object):
-    def __init__(self, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
-        super().__init__(name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, boolean) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, boolean)
 
 
 class EliteGoblin(Object):
-    def __init__(self, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
-        super().__init__(name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, boolean) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, boolean)
 
 
 class GrandOrc(Object): 
-    def __init__(self, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
-        super().__init__(name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
+    def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, bolean) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, bolean)
 
 
 class TheBoss(Object):
-     def __init__(self, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl) -> None:
-        super().__init__(name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl)
+     def __init__(self, rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, bolean) -> None:
+        super().__init__(rarity, name, hp, mana, resistance, mag_resistance, mag_damage, damage, attack_speed, lvl, bolean)
 
 
 
@@ -146,7 +146,7 @@ all_rarities = ('Common', 'Uncommon', 'Rare', 'Mythic', 'Legendary')
 
 Inventory1 = Inventory()
 
-Goblin1 = Goblin('Goblin', 100, 20, 0, 0, 0, 10, 2, 1)
-Elite_goblin = EliteGoblin('Elite Goblin', 250, 50, 10, 10, 20, 30, 1.5, 1)
-Grand_Orc = GrandOrc('Grand Orc', 500, 100, 15, 10, 20, 50, 2.5, 1)
-The_Boss = TheBoss("TheBoss", 1000, 125, 30, 30, 50, 80, 2, 1)
+Goblin1 = Goblin(None, 'Goblin', 100, 20, 0, 0, 0, 10, 2, 1, None)
+Elite_goblin = EliteGoblin(None, 'Elite Goblin', 250, 50, 10, 10, 20, 30, 1.5, 1, None)
+Grand_Orc = GrandOrc(None, 'Grand Orc', 500, 100, 15, 10, 20, 50, 2.5, 1, None)
+The_Boss = TheBoss(None, "TheBoss", 1000, 125, 30, 30, 50, 80, 2, 1, None)
